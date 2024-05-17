@@ -119,7 +119,7 @@ class Player:
         corner4 = [self.x - 5, self.y + 11]
 
         # Showing player's collision box
-        self.show_coll(coin1, coin2, coin4, corner4)
+        self.show_coll(corner4, corner3, corner2, corner4)
 
         for i in EnemyList:
             to_remove = []
