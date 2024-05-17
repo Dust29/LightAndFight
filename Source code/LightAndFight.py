@@ -112,6 +112,9 @@ class Player:
         global EnemyList
         global IsFighting
         global Vies
+
+        to_remove = []
+
         # Les coins du player
         corner1 = [self.x - 5, self.y - 9]
         corner2 = [self.x + 5, self.y - 9]
@@ -122,7 +125,6 @@ class Player:
         self.show_coll(corner4, corner3, corner2, corner4)
 
         for i in EnemyList:
-            to_remove = []
             enemy_corner1 = [i.x - i.rayon, i.y - i.rayon]
             enemy_corner2 = [i.x + i.rayon, i.y - i.rayon]
             enemy_corner3 = [i.x + i.rayon, i.y + i.rayon]
@@ -130,21 +132,20 @@ class Player:
 
             self.show_coll(enemy_corner1, enemy_corner2, enemy_corner3, enemy_corner4)
 
-
-            if corner1[0] < enemy_corner2[0] + 5 and corner4[0] + 10 > enemy_corner1[0] :
+            if corner1[0] < enemy_corner2[0] + 5 and corner4[0] + 10 > enemy_corner1[0]:
                 if corner1[1] < enemy_corner2[1] + 5 and corner4[1] + 10 > enemy_corner1[1]:
                     to_remove.append(i)
 
-            for i in to_remove:
-                EnemyList.remove(i)
-                self.health -= 1
-                pyxel.play(1, 2)
-                if self.health <= 0:
-                    pyxel.play(2, 3)
-                    Vies -= 1
-                    IsFighting = False
-                    self.health = 10
-                    EnemyList = []
+        for i in to_remove:
+            EnemyList.remove(i)
+            self.health -= 1
+            pyxel.play(1, 2)
+            if self.health <= 0:
+                pyxel.play(2, 3)
+                Vies -= 1
+                IsFighting = False
+                self.health = 10
+                EnemyList = []
 
     def show_coll(self, corner1, corner2, corner3, corner4):
 
@@ -154,8 +155,6 @@ class Player:
             pyxel.rectb(corner2[0], corner2[1], 1, 1, 15)
             pyxel.rectb(corner3[0], corner3[1], 1, 1, 2)
             pyxel.rectb(corner4[0], corner4[1], 1, 1, 9)
-
-
 
 
 class Enemy:
@@ -204,16 +203,13 @@ class Player2:
                 self.x += 2
                 self.sprint -= 1
 
-
             elif pyxel.btn(pyxel.KEY_LEFT):
                 self.x -= 2
                 self.sprint -= 1
 
-
             elif pyxel.btn(pyxel.KEY_UP):
                 self.y -= 2
                 self.sprint -= 1
-
 
             elif pyxel.btn(pyxel.KEY_DOWN):
                 self.y += 2
@@ -222,7 +218,6 @@ class Player2:
 
         if pyxel.btn(pyxel.KEY_RIGHT):
             self.x += 1
-
 
         elif pyxel.btn(pyxel.KEY_LEFT):
             self.x -= 1
@@ -280,10 +275,8 @@ class Player2:
 
         if self.colorpatern == 0:
             pyxel.tri(self.x + 3, self.y - 1, self.x + 9, self.y - 1, self.x + 6, self.y - 5, 14)  # Grande flamme
-
             pyxel.tri(self.x + 3, self.y - 1, self.x + 5, self.y - 3, self.x + 6, self.y - 1, 9)  # Flamme gauche
-
-            pyxel.tri(self.x + 6, self.y - 1, self.x + 8, self.y - 3, self.x + 9, self.y - 1, 9)  # Flame Droite
+            pyxel.tri(self.x + 6, self.y - 1, self.x + 8, self.y - 3, self.x + 9, self.y - 1, 10)  # Flame Droite
             pyxel.tri(self.x + 5, self.y - 1, self.x + 7, self.y - 1, self.x + 6, self.y - 2, 8)  # Petite flamme
 
         elif self.colorpatern == 1:
@@ -304,6 +297,17 @@ class Player2:
         self.colorcooldown -= 1
         if self.colorpatern >= 3:
             self.colorpatern = 0
+
+    def light_tri(self, x):
+        color_small = [8, 2]
+
+
+
+        pyxel.tri(self.x + 3, self.y - 1, self.x + 9, self.y - 1, self.x + 6, self.y - 5, 14)  # Grande flamme
+        pyxel.tri(self.x + 3, self.y - 1, self.x + 5, self.y - 3, self.x + 6, self.y - 1, 9)  # Flamme gauche
+        pyxel.tri(self.x + 6, self.y - 1, self.x + 8, self.y - 3, self.x + 9, self.y - 1, 9)  # Flame Droite
+        pyxel.tri(self.x + 5, self.y - 1, self.x + 7, self.y - 1, self.x + 6, self.y - 2, 8)  # Petite flamme
+
 
 
 class Enemy2:
@@ -361,6 +365,7 @@ class Enemy2:
             pyxel.rect(icoin2[0], icoin2[1], 1, 1, 10)  # 2
             pyxel.rect(icoin3[0], icoin3[1], 1, 1, 10)  # 3
             pyxel.rect(icoin4[0], icoin4[1], 1, 1, 10)  # 4
+
 
         if coin1[0] < icoin2[0] + 5 and coin4[0] + 10 > icoin1[0]:
             if coin1[1] < icoin2[1] + 5 and coin4[1] + 10 > icoin1[1]:
