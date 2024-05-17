@@ -131,9 +131,9 @@ class Player:
             self.show_coll(enemy_corner1, enemy_corner2, enemy_corner3, enemy_corner4)
 
 
-            if corner1[0] < enemy_corner2[0] + 5 and corner4[0] + 10 > enemy_corner1[0] and corner1[1] < enemy_corner2[1] + 5 and corner4[1] + 10 > \
-                    enemy_corner1[1]:
-                to_remove.append(i)
+            if corner1[0] < enemy_corner2[0] + 5 and corner4[0] + 10 > enemy_corner1[0] :
+                if corner1[1] < enemy_corner2[1] + 5 and corner4[1] + 10 > enemy_corner1[1]:
+                    to_remove.append(i)
 
             for i in to_remove:
                 EnemyList.remove(i)
@@ -362,14 +362,14 @@ class Enemy2:
             pyxel.rect(icoin3[0], icoin3[1], 1, 1, 10)  # 3
             pyxel.rect(icoin4[0], icoin4[1], 1, 1, 10)  # 4
 
-        if coin1[0] < icoin2[0] + 5 and coin4[0] + 10 > icoin1[0] and coin1[1] < icoin2[1] + 5 and coin4[1] + 10 > \
-                icoin1[1]:
-            IsFighting = True
-            FightWindow.enemycolor = self.color
-            FightWindow.enemyhealth = 5
-            FightPlayer.health = 10
-            pyxel.play(0, 0)
-            self.depart()
+        if coin1[0] < icoin2[0] + 5 and coin4[0] + 10 > icoin1[0]:
+            if coin1[1] < icoin2[1] + 5 and coin4[1] + 10 > icoin1[1]:
+                IsFighting = True
+                FightWindow.enemycolor = self.color
+                FightWindow.enemyhealth = 5
+                FightPlayer.health = 10
+                pyxel.play(0, 0)
+                self.depart()
 
     def depart(self):
         self.x = pyxel.rndi(1, 128)
