@@ -128,7 +128,7 @@ class Player:
             enemy_corner3 = [i.x + i.rayon, i.y + i.rayon]
             enemy_corner4 = [i.x - i.rayon, i.y + i.rayon]
 
-            self.show_coll(coin1, coin2, coin4, enemy_corner4)
+            self.show_coll(enemy_corner1, enemy_corner2, enemy_corner3, enemy_corner4)
 
 
             if corner1[0] < enemy_corner2[0] + 5 and corner4[0] + 10 > enemy_corner1[0] and corner1[1] < enemy_corner2[1] + 5 and corner4[1] + 10 > \
