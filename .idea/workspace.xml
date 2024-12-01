@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d301c131-de03-41be-9b6a-45180f81349b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source code/LightAndFight.py" beforeDir="false" afterPath="$PROJECT_DIR$/Source code/LightAndFight.py" afterDir="false" />
-    </list>
+    <list default="true" id="d301c131-de03-41be-9b6a-45180f81349b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +41,9 @@
       <module name="LightAndFight" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="D:\Python 3.12.3\LightAndFight\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Source code" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -72,6 +72,7 @@
       <workItem from="1715940345300" duration="177000" />
       <workItem from="1715940537242" duration="133000" />
       <workItem from="1715966319715" duration="5812000" />
+      <workItem from="1716110055749" duration="63000" />
     </task>
     <servers />
   </component>

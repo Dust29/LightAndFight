@@ -491,3 +491,5 @@ IsFighting = False
 
 # Running the game
 pyxel.run(update, draw)
+
+# Bonjour c'est pour tester git
